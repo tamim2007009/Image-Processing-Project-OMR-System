@@ -19,12 +19,71 @@ A professional **Optical Mark Recognition (OMR)** system built with Python that 
 
 ## 🚀 Demo
 
-The system processes answer sheets through multiple stages:
-1. **Image preprocessing** (grayscale, blur, edge detection)
-2. **Contour detection** using custom connected-component algorithm
-3. **Corner detection** and perspective correction
-4. **Answer bubble extraction** and analysis
-5. **Grading** and result generation
+### GUI Screenshots
+
+<div align="center">
+
+#### Main Configuration Window
+![GUI Main Window](Output_Images/gui1.png)
+*Configure exam settings and set answer keys*
+
+#### Processing Center
+![Processing Window](Output_Images/gui2.png)
+*Upload and process multiple answer sheets*
+
+</div>
+
+### Step-by-Step Processing Pipeline
+
+The system processes answer sheets through multiple stages with visual feedback:
+
+<div align="center">
+
+#### 1. Input Image (Resized)
+![Input Image](Output_Images/01_input_resized.png)
+*Original answer sheet resized to standard dimensions (400x500)*
+
+#### 2. Grayscale Conversion
+![Grayscale](Output_Images/02_grayscale.png)
+*Converted to grayscale for processing*
+
+#### 3. Gaussian Blur
+![Blurred](Output_Images/03_blurred.png)
+*Applied Gaussian blur to reduce noise*
+
+#### 4. Edge Detection (Canny)
+![Canny Edges](Output_Images/04_canny_edges.png)
+*Detected edges using Canny algorithm*
+
+#### 5. Contour Detection
+![Contours](Output_Images/05_contours.png)
+*Custom algorithm detects all regions and boundaries*
+
+#### 6. Answer Section Identification
+![Answer Section](Output_Images/06_answer_section.png)
+*Largest contour identified as the answer section*
+
+#### 7. Region of Interest (ROI) Extraction
+![Birds Eye View](Output_Images/07_birds_eye_view.png)
+*Extracted and aligned answer grid*
+
+#### 8. Binary Thresholding
+![Thresholded](Output_Images/08_thresholded.png)
+*Binary threshold applied to identify filled bubbles*
+
+#### 9. Answer Detection & Grading
+![Answers Marked](Output_Images/09_answers_marked.png)
+*Green = Correct, Red = Incorrect (with correct answer shown)*
+
+#### 10. Grade Section
+![Grading Section](Output_Images/10_grading_section.png)
+*Grade section identified for result annotation*
+
+#### 11. Final Result
+![Final Result](Output_Images/11_final_result.png)
+*Score overlaid on the answer sheet*
+
+</div>
 
 ## 📋 Requirements
 
@@ -178,6 +237,13 @@ OMR/
 
 ## 🔬 How It Works
 
+### Processing Pipeline Overview
+
+```
+Input Image → Preprocessing → Contour Detection → ROI Extraction → 
+Answer Detection → Grading → Results Export
+```
+
 ### 1. Custom Contour Detection Algorithm
 
 The system uses a **custom connected-component contour tracing algorithm** instead of OpenCV's built-in `findContours`:
@@ -185,6 +251,8 @@ The system uses a **custom connected-component contour tracing algorithm** inste
 - **BFS (Breadth-First Search)** for region growing
 - **DFS (Depth-First Search)** for edge tracing
 - More accurate detection of answer sheet regions
+
+See the [Contour Detection](#5-contour-detection) output above for visual results.
 
 ```python
 # From helper.py
@@ -195,11 +263,15 @@ def get_edge_points(image):
 
 ### 2. Corner Detection and ROI Extraction
 
+After detecting contours, the system identifies the largest region (answer section) and extracts its corners for precise alignment.
+
 ```python
 def find_corners(contour):
     # Finds the 4 corners of each detected region
     # Returns: [(top_left), (top_right), (bottom_left), (bottom_right)]
 ```
+
+See [Answer Section Identification](#6-answer-section-identification) and [ROI Extraction](#7-region-of-interest-roi-extraction) above.
 
 ### 3. Answer Bubble Analysis
 
@@ -208,12 +280,16 @@ def find_corners(contour):
 - Maximum pixel count indicates selected answer
 - Compares with answer key for grading
 
+The [Binary Thresholding](#8-binary-thresholding) step shows how bubbles are converted to binary for pixel counting.
+
 ### 4. Grading and Statistics
 
 - Individual scores and grades
 - Class statistics (average, highest, lowest)
 - Grade distribution (A, B, C, F)
 - Pass/fail analysis
+
+See the [Answer Detection & Grading](#9-answer-detection--grading) output showing correct (green) and incorrect (red) answers.
 
 ## 📊 Output Format
 
