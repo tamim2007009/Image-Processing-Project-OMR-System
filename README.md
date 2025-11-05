@@ -23,13 +23,20 @@ A professional **Optical Mark Recognition (OMR)** system built with Python that 
 
 <div align="center">
 
-#### Main Configuration Window
-![GUI Main Window](Output_Images/gui1.png)
-*Configure exam settings and set answer keys*
-
-#### Processing Center
-![Processing Window](Output_Images/gui2.png)
-*Upload and process multiple answer sheets*
+<table>
+<tr>
+<td align="center">
+<img src="Output_Images/gui1.png" alt="GUI Main Window" width="450"/><br/>
+<b>Main Configuration Window</b><br/>
+<sub>Configure exam settings and set answer keys</sub>
+</td>
+<td align="center">
+<img src="Output_Images/gui2.png" alt="Processing Window" width="450"/><br/>
+<b>Processing Center</b><br/>
+<sub>Upload and process multiple answer sheets</sub>
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -39,49 +46,81 @@ The system processes answer sheets through multiple stages with visual feedback:
 
 <div align="center">
 
-#### 1. Input Image (Resized)
-![Input Image](Output_Images/01_input_resized.png)
-*Original answer sheet resized to standard dimensions (400x500)*
+<table>
+<tr>
+<td align="center">
+<img src="Output_Images/01_input_resized.png" alt="Input Image" width="350"/><br/>
+<b>1. Input Image (Resized)</b><br/>
+<sub>Original answer sheet resized to standard dimensions (400x500)</sub>
+</td>
+<td align="center">
+<img src="Output_Images/02_grayscale.png" alt="Grayscale" width="350"/><br/>
+<b>2. Grayscale Conversion</b><br/>
+<sub>Converted to grayscale for processing</sub>
+</td>
+</tr>
 
-#### 2. Grayscale Conversion
-![Grayscale](Output_Images/02_grayscale.png)
-*Converted to grayscale for processing*
+<tr>
+<td align="center">
+<img src="Output_Images/03_blurred.png" alt="Blurred" width="350"/><br/>
+<b>3. Gaussian Blur</b><br/>
+<sub>Applied Gaussian blur to reduce noise</sub>
+</td>
+<td align="center">
+<img src="Output_Images/04_canny_edges.png" alt="Canny Edges" width="350"/><br/>
+<b>4. Edge Detection (Canny)</b><br/>
+<sub>Detected edges using Canny algorithm</sub>
+</td>
+</tr>
 
-#### 3. Gaussian Blur
-![Blurred](Output_Images/03_blurred.png)
-*Applied Gaussian blur to reduce noise*
+<tr>
+<td align="center">
+<img src="Output_Images/05_contours.png" alt="Contours" width="350"/><br/>
+<b>5. Contour Detection</b><br/>
+<sub>Custom algorithm detects all regions and boundaries</sub>
+</td>
+<td align="center">
+<img src="Output_Images/06_answer_section.png" alt="Answer Section" width="350"/><br/>
+<b>6. Answer Section Identification</b><br/>
+<sub>Largest contour identified as the answer section</sub>
+</td>
+</tr>
 
-#### 4. Edge Detection (Canny)
-![Canny Edges](Output_Images/04_canny_edges.png)
-*Detected edges using Canny algorithm*
+<tr>
+<td align="center">
+<img src="Output_Images/07_birds_eye_view.png" alt="Birds Eye View" width="350"/><br/>
+<b>7. Region of Interest (ROI) Extraction</b><br/>
+<sub>Extracted and aligned answer grid</sub>
+</td>
+<td align="center">
+<img src="Output_Images/08_thresholded.png" alt="Thresholded" width="350"/><br/>
+<b>8. Binary Thresholding</b><br/>
+<sub>Binary threshold applied to identify filled bubbles</sub>
+</td>
+</tr>
 
-#### 5. Contour Detection
-![Contours](Output_Images/05_contours.png)
-*Custom algorithm detects all regions and boundaries*
+<tr>
+<td align="center">
+<img src="Output_Images/09_answers_marked.png" alt="Answers Marked" width="350"/><br/>
+<b>9. Answer Detection & Grading</b><br/>
+<sub>Green = Correct, Red = Incorrect (with correct answer shown)</sub>
+</td>
+<td align="center">
+<img src="Output_Images/10_grading_section.png" alt="Grading Section" width="350"/><br/>
+<b>10. Grade Section</b><br/>
+<sub>Grade section identified for result annotation</sub>
+</td>
+</tr>
 
-#### 6. Answer Section Identification
-![Answer Section](Output_Images/06_answer_section.png)
-*Largest contour identified as the answer section*
+<tr>
+<td align="center" colspan="2">
+<img src="Output_Images/11_final_result.png" alt="Final Result" width="350"/><br/>
+<b>11. Final Result</b><br/>
+<sub>Score overlaid on the answer sheet</sub>
+</td>
+</tr>
 
-#### 7. Region of Interest (ROI) Extraction
-![Birds Eye View](Output_Images/07_birds_eye_view.png)
-*Extracted and aligned answer grid*
-
-#### 8. Binary Thresholding
-![Thresholded](Output_Images/08_thresholded.png)
-*Binary threshold applied to identify filled bubbles*
-
-#### 9. Answer Detection & Grading
-![Answers Marked](Output_Images/09_answers_marked.png)
-*Green = Correct, Red = Incorrect (with correct answer shown)*
-
-#### 10. Grade Section
-![Grading Section](Output_Images/10_grading_section.png)
-*Grade section identified for result annotation*
-
-#### 11. Final Result
-![Final Result](Output_Images/11_final_result.png)
-*Score overlaid on the answer sheet*
+</table>
 
 </div>
 
