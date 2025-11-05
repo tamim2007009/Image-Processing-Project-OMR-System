@@ -38,8 +38,8 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 1. Clone your fork:
 ```bash
-git clone https://github.com/your-username/omr-answer-sheet-scanner.git
-cd omr-answer-sheet-scanner
+git clone https://github.com/your-username/Image-Processing-Project-OMR-System.git
+cd Image-Processing-Project-OMR-System
 ```
 
 2. Create a virtual environment:

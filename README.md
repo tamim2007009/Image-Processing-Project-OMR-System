@@ -44,8 +44,8 @@ Pillow>=8.0.0
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/omr-answer-sheet-scanner.git
-cd omr-answer-sheet-scanner
+git clone https://github.com/tamim2007009/Image-Processing-Project-OMR-System.git
+cd Image-Processing-Project-OMR-System
 ```
 
 2. **Create a virtual environment (recommended)**
@@ -318,8 +318,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
+**Tamim**
+- GitHub: [@tamim2007009](https://github.com/tamim2007009)
 
 ## 🙏 Acknowledgments
 
@@ -328,7 +328,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-For questions or support, please open an issue on GitHub or contact [your-email@example.com]
+For questions or support, please open an issue on the [GitHub repository](https://github.com/tamim2007009/Image-Processing-Project-OMR-System/issues).
 
 ---
 

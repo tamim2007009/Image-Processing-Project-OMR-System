@@ -6,8 +6,8 @@ Get up and running with OMR Answer Sheet Scanner in under 5 minutes!
 
 1. **Download or Clone**
 ```bash
-git clone https://github.com/yourusername/omr-answer-sheet-scanner.git
-cd omr-answer-sheet-scanner
+git clone https://github.com/tamim2007009/Image-Processing-Project-OMR-System.git
+cd Image-Processing-Project-OMR-System
 ```
 
 2. **Install Dependencies**
